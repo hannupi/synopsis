@@ -1,0 +1,18 @@
+{
+	"manifest_version": 2,
+	"name": "Synopsis",
+	"version": "1.0",
+	"description": "Sum up long youtube videos to a short readable version with the magical power of AI",
+	"homepage_url": "https://github.com/dfthan/synopsis",
+	"icons": {
+		"48": "icons/logo-48.png"
+	},
+
+	"permissions": ["activeTab"],
+
+	"browser_action": {
+		"default_icon": "icons/logo-48.png",
+		"default_popup": "popup/index.html",
+		"default_title": "Synopsis"
+	}
+}
