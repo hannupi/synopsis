@@ -11,14 +11,7 @@ button.addEventListener('click', async () => {
     const captionsURL = captionTracks[0].baseUrl;
 
     const captionsData = await fetch(captionsURL)
-    const captions = await captionsData.text()
-    console.log(captions
-        .replace(/<[^>]*>/g, '')
-        .replace(/&amp;#39;/g, '')
-    )
+    let captions = await captionsData.text()
+    captions = captions.replace(/<[^>]*>/g, '').replace(/&amp;#39;/g, '')
+    console.log(captions)
 })
-
-
-
-
-
