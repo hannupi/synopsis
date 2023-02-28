@@ -1,19 +1,13 @@
 {
-  "name": "synopsis",
-  "version": "1.0.0",
-  "description": "firefox extension that grabs video transcription or subtitles, and generates a summary through chatgpt or something similar",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dfthan/synopsis.git"
-  },
-  "author": "Hannu",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dfthan/synopsis/issues"
-  },
-  "homepage": "https://github.com/dfthan/synopsis#readme"
+	"name": "synopsis",
+	"version": "1.0.0",
+	"description": "firefox extension that grabs video transcription or subtitles, and generates a summary through chatgpt or something similar",
+	"scripts": {
+		"lint": "eslint ."
+	},
+	"author": "Hannu",
+	"license": "ISC",
+	"devDependencies": {
+		"eslint": "^8.35.0"
+	}
 }
