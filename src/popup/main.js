@@ -1,6 +1,8 @@
 import secrets from "./secrets.js"; // find a logical way to do this in web extension way
 
 const button = document.getElementById('generator-btn');
+const reply = document.getElementById('reply-box');
+const token = document.getElementById('token-box');
 
 button.addEventListener('click', async () => {
     const source = await browser.tabs.executeScript({
@@ -24,11 +26,25 @@ button.addEventListener('click', async () => {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${secrets.APIKEY}`,
         },
-        body: JSON.stringify({ "model": "gpt-3.5-turbo", "messages": [{ role: "user", content: `bullet point this: ${captions}` }] })
+        body: JSON.stringify({
+            "model": "gpt-3.5-turbo", "messages": [{
+                role: "user",
+                content: `bullet point this: ${captions}`
+            }]
+        })
     })
     const data = await response.json()
 
+    const replyMessage = data.choices[0].message.content.split("-")
+    const usedTokens = data.usage.total_tokens
+    // chatgpt-3.5-turbo price is $0.002/1k tokens currently (02/03/2023)
+    const price = (usedTokens * 0.002 / 1000).toFixed(5)
     console.log(data)
-    console.log(data.choices[0].message.content)
+
+    for (let i = 1; i < replyMessage.length; i++) {
+        reply.innerHTML += "<p>" + "- " + replyMessage[i] + "</p>"
+    }
+
+    token.innerHTML = "<p> Tokens used for query: " + usedTokens + ` ($${price})` + "</p>"
 
 })
