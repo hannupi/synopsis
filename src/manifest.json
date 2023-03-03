@@ -8,11 +8,21 @@
 		"48": "icons/logo-48.png"
 	},
 
-	"permissions": ["activeTab"],
+	"options_ui": {
+		"page": "options/index.html"
+	},
+
+	"permissions": ["activeTab", "storage"],
 
 	"browser_action": {
 		"default_icon": "icons/logo-48.png",
 		"default_popup": "popup/index.html",
 		"default_title": "Synopsis"
+	},
+
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "synopsis@synopsis"
+		}
 	}
 }

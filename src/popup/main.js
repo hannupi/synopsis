@@ -1,8 +1,9 @@
-import secrets from "./secrets.js"; // find a logical way to do this in web extension way
 
 const button = document.getElementById('generator-btn');
 const reply = document.getElementById('reply-box');
 const token = document.getElementById('token-box');
+const storage = await browser.storage.sync.get("apiKey")
+
 
 button.addEventListener('click', async () => {
     const source = await browser.tabs.executeScript({
@@ -24,7 +25,7 @@ button.addEventListener('click', async () => {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${secrets.APIKEY}`,
+            "Authorization": `Bearer ${storage.apiKey}`,
         },
         body: JSON.stringify({
             "model": "gpt-3.5-turbo", "messages": [{
@@ -46,5 +47,4 @@ button.addEventListener('click', async () => {
     }
 
     token.innerHTML = "<p> Tokens used for query: " + usedTokens + ` ($${price})` + "</p>"
-
 })

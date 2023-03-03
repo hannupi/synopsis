@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<form>
+			<label for="name">openAI API key</label>
+			<input
+				type="text"
+				size="55"
+				id="apiKey"
+				name="apiKey"
+			/><br /><br />
+			<input type="submit" value="Submit" />
+		</form>
+		<a href="https://platform.openai.com/docs/quickstart/add-your-api-key"
+			>Link to openAI documentation</a
+		>
+		<p>
+			You can either create API key in the link or go into your openAI
+			account settings and create one
+		</p>
+		<p>
+			WARNING: it is recommended to add usage limit to your api key, as
+			web storage keys are vulnerable to XSS attacks
+		</p>
+		<script src="options.js"></script>
+	</body>
+</html>
