@@ -1,4 +1,5 @@
 const storage = await browser.storage.sync.get("apiKey")
+const loader = document.getElementById('loaderAnim');
 const reply = document.getElementById('reply-box');
 const token = document.getElementById('token-box');
 const error = document.getElementById("error")
@@ -7,7 +8,7 @@ export async function generateResponse(captions) {
     try {
 
         if (storage.apiKey === undefined || storage.apiKey === "") {
-            reply.innerHTML = ""
+            loader.style.display = "none"
             error.innerHTML = "<p> Error: No API key found. Please add your API key in the extension options. </p>"
             return
         }
@@ -31,14 +32,15 @@ export async function generateResponse(captions) {
         const usedTokens = data.usage.total_tokens
         const price = (usedTokens * 0.002 / 1000).toFixed(5) // chatgpt-3.5-turbo price is $0.002/1k tokens currently (02/03/2023)
 
-        reply.innerHTML = ""
+        loader.style.display = "none"
         for (let i = 1; i < replyMessage.length; i++) {
             reply.innerHTML += "<p>" + "- " + replyMessage[i] + "</p>"
         }
 
-        token.innerHTML = "<p> Tokens used for query: " + usedTokens + ` ($${price})` + "</p>"
+        token.innerHTML = "<p> Tokens used for query: " + usedTokens + ` / $${price}` + "</p>"
     } catch (e) {
         console.log(e)
-        reply.innerHTML = "<p> Error: " + e + "</p>"
+        error.innerHTML = "<p>Error with the API key/endpoint</p>"
+        loader.style.display = "none"
     }
 }

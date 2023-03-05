@@ -4,14 +4,20 @@
 }
 
 :root {
-	--background: #1a1a1a;
-	--text: #cccccc;
+	--background: #000000;
+	--text: #d3d3d3;
 	--title-size: 21px;
 }
 
 body {
-	width: 300px;
+	width: 350px;
 	background-color: var(--background);
+	user-select: text;
+}
+
+p {
+	font-size: 16px;
+	color: var(--text);
 }
 
 .title-content {
@@ -25,7 +31,7 @@ body {
 .title-content img {
 	width: var(--title-size);
 	height: var(--title-size);
-	margin: 0 5px;
+	margin-right: 5px;
 }
 
 .title-content h1 {
@@ -33,20 +39,21 @@ body {
 }
 
 #error {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 16px;
 	font-weight: bold;
 	margin: 10px 0;
 }
 
 #error p {
+	text-align: center;
 	color: #c50000;
 }
 
 #reply-box {
 	margin: 10px 8px;
+}
+
+#reply-box p {
+	margin: 5px 0;
 }
 
 #token-box {
@@ -56,7 +63,75 @@ body {
 	margin: 4px 0;
 }
 
-p {
-	font-size: 16px;
-	color: var(--text);
+#token-box p {
+	font-size: 11px;
+}
+
+.loader-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#loaderAnim {
+	position: relative;
+	width: 80px;
+	height: 80px;
+}
+
+#loaderAnim div {
+	position: absolute;
+	top: 32px;
+	width: 13px;
+	height: 13px;
+	border-radius: 50%;
+	background: #fff;
+	animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+#loaderAnim div:nth-child(1) {
+	left: 8px;
+	animation: loaderAnim1 0.6s infinite;
+}
+
+#loaderAnim div:nth-child(2) {
+	left: 8px;
+	animation: loaderAnim2 0.6s infinite;
+}
+
+#loaderAnim div:nth-child(3) {
+	left: 32px;
+	animation: loaderAnim2 0.6s infinite;
+}
+
+#loaderAnim div:nth-child(4) {
+	left: 56px;
+	animation: loaderAnim3 0.6s infinite;
+}
+
+@keyframes loaderAnim1 {
+	0% {
+		transform: scale(0);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes loaderAnim3 {
+	0% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(0);
+	}
+}
+
+@keyframes loaderAnim2 {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(24px, 0);
+	}
 }

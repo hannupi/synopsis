@@ -1,11 +1,10 @@
 const error = document.getElementById("error")
-const reply = document.getElementById('reply-box');
+const loader = document.getElementById('loaderAnim');
 const source = await browser.tabs.query({ active: true, currentWindow: true })
 const sourceURL = source[0].url
 
 export async function getCaptions() {
     try {
-        reply.innerHTML = "<p> Loading...</p>"
         const sourceData = await fetch(sourceURL, {
             headers: {
                 "Content-Type": "text/plain",
@@ -23,8 +22,8 @@ export async function getCaptions() {
         captions = captions.replace(/<[^>]*>/g, '').replace(/&amp;#39;/g, '')
         return captions
     } catch (e) {
-        reply.innerHTML = ""
         console.log("Captions not found")
-        error.innerHTML = "<p> No captions found for this video</p>"
+        error.innerHTML = "<p>No captions found for this YouTube video</p>"
+        loader.style.display = "none"
     }
 }
