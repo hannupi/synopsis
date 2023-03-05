@@ -12,7 +12,7 @@
 		"page": "options/index.html"
 	},
 
-	"permissions": ["activeTab", "storage"],
+	"permissions": ["activeTab", "storage", "*://www.youtube.com/*"],
 
 	"browser_action": {
 		"default_icon": "icons/logo-48.png",
