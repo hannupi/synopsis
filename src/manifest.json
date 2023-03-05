@@ -17,7 +17,8 @@
 	"browser_action": {
 		"default_icon": "icons/logo-48.png",
 		"default_popup": "popup/index.html",
-		"default_title": "Synopsis"
+		"default_title": "Synopsis",
+		"browser_style": true
 	},
 
 	"browser_specific_settings": {
