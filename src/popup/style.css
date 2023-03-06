@@ -10,6 +10,7 @@
 }
 
 body {
+	font-family: sans-serif, monospace;
 	width: 350px;
 	background-color: var(--background);
 	user-select: text;

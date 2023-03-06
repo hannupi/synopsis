@@ -15,9 +15,10 @@ export async function getCaptions() {
         const regex = /({"captionTracks":.*isTranslatable":(true|false)}])/;
         const [match] = regex.exec(sourceHTML);
         const { captionTracks } = JSON.parse(`${match}}`);
-        const captionsURL = captionTracks[0].baseUrl;
+        // in case there are multiple languages, you can use the languageCode to find the one you want
+        const engCaptions = captionTracks.find((track) => track.languageCode === "en")
 
-        const captionsData = await fetch(captionsURL)
+        const captionsData = await fetch(engCaptions.baseUrl)
         let captions = await captionsData.text()
         captions = captions.replace(/<[^>]*>/g, '').replace(/&amp;#39;/g, '')
         return captions
