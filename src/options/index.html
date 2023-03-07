@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<script type="module" src="options.js" defer></script>
 	</head>
 	<body>
 		<form>
@@ -25,6 +26,14 @@
 			WARNING: it is recommended to add usage limit to your API key, as
 			web clients are vulnerable to XSS attacks in worst case scenario
 		</p>
-		<script src="options.js"></script>
+
+		<div>
+			<label for="darkMode">White theme for popup</label>
+			<input
+				type="checkbox"
+				id="theme-selector"
+				name="theme-selector"
+			/><br /><br />
+		</div>
 	</body>
 </html>
