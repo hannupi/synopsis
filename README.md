@@ -6,10 +6,22 @@ Firefox extension which grabs captions from Youtube video with a click of a butt
 
 ### Why?
 
-Because I want a quick sneak peek if that 10 minute clickbait video is worth watching or if it has any good points
+Because I want a quick sneak peek if that 10 minute content is worth going through or if it has any good points
 
 ### Sounds great! What do I need?
 
 openAI API key and to download this firefox extension
 
-_LINK_ coming soon
+Firefox: https://addons.mozilla.org/en-US/firefox/addon/synopsiss/
+
+### Setting up
+
+Grab your API key from https://platform.openai.com/account/api-keys , then set it in the extension options 
+
+(right click extension logo -> manage extensions -> options tab -> copy paste the key in and press submit). 
+
+After that you can go to any YouTube video with closed captions available and press the extension logo, which will then send everything to chatGPTs API endpoint and form a reply.
+
+### Contributions
+
+Feel free to create an issue/pull request/whatever =) everything is appreciated
