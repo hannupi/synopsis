@@ -4,9 +4,8 @@ const reply = document.getElementById('reply-box');
 const token = document.getElementById('token-box');
 const error = document.getElementById("error")
 
-export async function generateResponse(captions) {
+export async function generateResponse(payload) {
     try {
-
         if (storage.apiKey === undefined || storage.apiKey === "") {
             loader.style.display = "none"
             error.innerHTML = "<p> Error: No API key found. Please add your API key in the extension options. </p>"
@@ -22,11 +21,18 @@ export async function generateResponse(captions) {
             body: JSON.stringify({
                 "model": "gpt-3.5-turbo", "messages": [{
                     role: "user",
-                    content: `bullet point this: ${captions}`
+                    content: `bullet point this: ${payload}`
                 }]
             })
         })
         const data = await response.json()
+
+        if (!data.error && data.choices.length === 0) {
+            console.log(data.error)
+            error.innerHTML = `<p>${data.error.message}</p>`
+            loader.style.display = "none"
+            return
+        }
 
         const replyMessage = data.choices[0].message.content.split("\n")
         const usedTokens = data.usage.total_tokens

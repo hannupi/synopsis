@@ -1,14 +1,14 @@
-import { getCaptions } from './captions.js';
 import { generateResponse } from './chatgpt.js';
+import { createPayload } from './payload.js';
 const { theme } = await browser.storage.sync.get("theme")
 if (theme) document.body.classList.add("white-theme")
 
 
 async function main() {
-    const captions = await getCaptions()
+    const payload = await createPayload()
 
-    if (captions !== undefined) {
-        generateResponse(captions)
+    if (payload !== undefined) {
+        generateResponse(payload)
     }
 }
 
