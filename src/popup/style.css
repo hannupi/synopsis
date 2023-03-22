@@ -43,7 +43,7 @@ body {
 
 #error {
 	font-weight: bold;
-	margin: 10px 0;
+	margin: 10px 10px;
 }
 
 #error p {
@@ -78,6 +78,7 @@ body {
 
 #loaderAnim {
 	position: relative;
+	left: 8px;
 	width: 80px;
 	height: 80px;
 }
