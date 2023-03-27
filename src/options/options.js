@@ -2,13 +2,17 @@ const themeToggle = document.querySelector("#theme-selector")
 
 function saveOptions(e) {
     e.preventDefault();
+    const key = document.querySelector("#apiKey").value.trim()
     browser.storage.sync.set({
-        apiKey: document.querySelector("#apiKey").value
+        apiKey: key
     });
 }
 
 function restoreOptions() {
     function setCurrentChoice(result) {
+        console.log(result.apiKey)
+        const asd = result.apiKey.split("")
+        console.log("asd", asd);
         document.querySelector("#apiKey").value = result.apiKey
     }
 

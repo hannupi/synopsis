@@ -7,25 +7,19 @@
 	<body>
 		<form>
 			<label for="name">openAI API key</label>
-			<input
-				type="text"
-				size="55"
-				id="apiKey"
-				name="apiKey"
-			/><br /><br />
+			<input type="text" size="65" id="apiKey" name="apiKey" /><br />
 			<input type="submit" value="Submit" />
 		</form>
-		<a href="https://platform.openai.com/docs/quickstart/add-your-api-key"
-			>Link to openAI documentation</a
+		<p></p>
+
+		<a href="https://platform.openai.com/account/api-keys"
+			>Link to openAI key</a
 		>
 		<p>
-			You can either create API key in the link or go into your openAI
-			account settings and create one
+			Grab your API key from the link above, and paste it in the input and
+			submit
 		</p>
-		<p>
-			WARNING: it is recommended to add usage limit to your API key, as
-			web clients are vulnerable to XSS attacks in worst case scenario
-		</p>
+		<p>WARNING: it is recommended to add usage limit to your API key</p>
 
 		<div>
 			<label for="darkMode">White theme for popup</label>
