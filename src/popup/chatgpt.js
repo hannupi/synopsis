@@ -27,7 +27,7 @@ export async function generateResponse(payload) {
         })
         const data = await response.json()
 
-        if (!data.error && data.choices.length === 0) {
+        if (data.error || data.choices.length === 0) {
             console.log(data.error)
             error.innerHTML = `<p>${data.error.message}</p>`
             loader.style.display = "none"
