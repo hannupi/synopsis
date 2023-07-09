@@ -1,5 +1,7 @@
 # Synopsis
 
+# This project isn't worked on because I ran out of free credits, and API endpoint calls will probably break when GPT4 goes public live
+
 ### What?
 
 Firefox extension which grabs captions from Youtube video with a click of a button, and generates bullet point summary with GPT-3.5-turbo model of OpenAI
